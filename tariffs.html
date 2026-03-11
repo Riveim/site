@@ -1,0 +1,480 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rivee — Тарифы</title>
+  <link rel="icon" href="icon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* tariffs.html only */
+    .card-duration{display:flex;gap:10px;flex-wrap:wrap}
+    .card-duration .segbtn{
+      border-radius:10px !important;
+      padding:10px 14px;
+      min-width:54px;
+      justify-content:center;
+    }
+  
+    .addonPill{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      width:100%;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.12);
+      color: rgba(255,255,255,.82);
+      cursor:pointer;
+      transition: .18s ease;
+      user-select:none;
+    }
+    .addonToggle input{
+      position:absolute;
+      opacity:0;
+      pointer-events:none;
+    }
+    .addonToggle input:checked + .addonPill{
+      border-color: rgba(42,168,255,.35);
+      background: rgba(42,168,255,.10);
+      color: rgba(214,241,255,.95);
+      box-shadow: 0 10px 34px rgba(42,168,255,.10);
+    }
+    
+    .addonPill:hover{
+      border-color: rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      transform: translateY(-1px);
+    }
+.addonPrice{white-space:nowrap; opacity:.95;}
+
+</style>
+
+</head>
+<body>
+  <header class="topbar" id="top">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html" aria-label="Rivee">
+        <img class="brand__logo" src="icon.png" alt="Rivee" /><span class="brand__name">Rivee</span></a>
+
+      <nav class="nav" aria-label="Навигация">
+        <a class="nav__link" href="index.html#about">О нас</a>
+        <a class="nav__link" href="index.html#features">Функции</a>
+        <a class="nav__link" href="index.html#pricing">Тарифы</a>
+        <a class="nav__link" href="#" data-open-modal="contacts">Контакты</a>
+      </nav>
+
+      <div class="topbar__actions">
+        <!--<button class="iconbtn" id="themeToggle" aria-label="Переключить тему" title="Тема">-->
+          <span class="iconbtn__icon" aria-hidden="true"></span>
+        </button>
+        <button class="btn btn--ghost" data-open-modal="login">Вход</button>
+        <button class="btn btn--primary" data-open-modal="register">Регистрация</button>
+
+        <button class="burger" id="burger" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile" id="mobileMenu" aria-hidden="true">
+      <a class="mobile__link" href="index.html#about">О нас</a>
+      <a class="mobile__link" href="index.html#features">Функции</a>
+      <a class="mobile__link" href="index.html#pricing">Тарифы</a>
+      <a class="mobile__link" href="#" data-open-modal="contacts">Контакты</a>
+      <div class="mobile__row">
+        <button class="btn btn--ghost w100" data-open-modal="login">Вход</button>
+        <button class="btn btn--primary w100" data-open-modal="register">Регистрация</button>
+      </div>
+    </div>
+  </header>
+
+  
+  <main class="section">
+    <div class="container">
+      <div class="section__head">
+        <h1 class="h2 reveal">Тарифы Rivee</h1>
+        <p class="muted reveal" style="--d:60ms">Выбери срок действия — цены на тарифах обновятся автоматически.</p>
+      </div>
+
+      <div class="pricing pricing--full">
+
+        <!-- BASIC -->
+        <div class="pricecard reveal" id="basic" data-plan="basic" data-base="200">
+          <div class="pricecard__top" style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start;">
+            <h3 class="h3" style="margin:0;">Basic</h3>
+
+            <div class="price" style="text-align:right;">
+              <div class="muted small" style="margin-bottom:2px;">+ экономия <b>$<span data-save>0</span></b></div>
+              <div><span>$</span><span class="price__num" data-price>200</span><span class="price__sub" data-sub>/мес</span></div>
+              <div class="muted small" style="margin-top:2px;">скидка <b><span data-discount>0</span>%</b></div>
+            </div>
+          </div>
+
+          <div class="durationbar card-duration" aria-label="Срок Basic" style="margin-top:12px;">
+            <button class="segbtn is-active" type="button" data-m="1">1</button>
+            <button class="segbtn" type="button" data-m="3">3</button>
+            <button class="segbtn" type="button" data-m="6">6</button>
+            <button class="segbtn" type="button" data-m="12">12</button>
+          </div>
+
+          <ul class="list" style="margin-top:14px;">
+            <li>доступ к системе Rivee</li>
+            <li>1 аккаунт</li>
+            <li>мгновенные заявки</li>
+            <li>фильтр</li>
+            <li>статистика за последний месяц</li>
+          </ul>
+
+          <div class="pricecard__foot">
+            <div class="pricecard__actions">
+              <a class="btn btn--ghost w100 js-lead-open">Оставить заявку</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- FULL -->
+        <div class="pricecard pricecard--hot reveal" id="full" data-plan="full" data-base="500" style="--d:90ms">
+          <div class="pricecard__hot">Рекомендуем</div>
+
+          <div class="pricecard__top" style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start;">
+            <h3 class="h3" style="margin:0;">Full</h3>
+
+            <div class="price" style="text-align:right;">
+              <div class="muted small" style="margin-bottom:2px;">+ экономия <b>$<span data-save>0</span></b></div>
+              <div><span>$</span><span class="price__num" data-price>500</span><span class="price__sub" data-sub>/мес</span></div>
+              <div class="muted small" style="margin-top:2px;">скидка <b><span data-discount>0</span>%</b></div>
+            </div>
+          </div>
+
+          <div class="durationbar card-duration" aria-label="Срок Full" style="margin-top:12px;">
+            <button class="segbtn is-active" type="button" data-m="1">1</button>
+            <button class="segbtn" type="button" data-m="3">3</button>
+            <button class="segbtn" type="button" data-m="6">6</button>
+            <button class="segbtn" type="button" data-m="12">12</button>
+          </div>
+
+          <ul class="list" style="margin-top:14px;">
+            <li><b>Basic + 3 места</b></li>
+            <li>приоритет заявок</li>
+            <li>real-time статистика</li>
+            <li>автоматические ответы ИИ</li>
+          </ul>
+
+          
+          <div class="addonRow" style="margin-top:12px;">
+            <label class="addonToggle" style="display:block;">
+              <input type="checkbox" data-addon="drivers" />
+              <span class="addonPill">
+                <span class="addonTitle">Добавить доступ к базе водителей</span>
+                <span class="addonPrice"><b>+ $100 / мес</b></span>
+              </span>
+            </label>
+          </div>
+
+
+          <div class="pricecard__foot">
+            <div class="pricecard__actions">
+              <a class="btn btn--primary w100 btn--ghost js-lead-open">Оставить заявку</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CUSTOM -->
+        <div class="pricecard reveal" id="custom" data-plan="custom" style="--d:180ms">
+          <div class="pricecard__top">
+            <h3 class="h3">Custom</h3>
+            <div class="price"><span>Инд.</span><span class="price__sub">условия</span></div>
+          </div>
+
+          <ul class="list">
+            <li>Настройте подписку под задачи вашей компании: выберите количество мест,
+            длительность подписки и подключите необходимые функции — real-time статистику, 
+            автоматические ответы ИИ и доступ к базе водителей.</li>
+          </ul>
+
+          <div class="pricecard__foot">
+            <div class="pricecard__actions">
+              <button class="btn btn--ghost w100" type="button" id="customConfigure">Настроить</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div style="height:18px"></div>
+      <a class="muted link reveal" href="index.html">← На главную</a>
+    </div>
+  </main>
+
+
+  <footer class="footer" id="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">Rivee</div>
+        <div class="muted">Официальный сайт сервиса заявок и откликов по грузоперевозкам.</div>
+        <div class="footer__social">
+          <a class="footer__chip" href="#" aria-label="Telegram">Telegram</a>
+          <a class="footer__chip" href="#" aria-label="Instagram">Instagram</a>
+          <a class="footer__chip" href="#" aria-label="Email">Email</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer__title">Контакты</div>
+        <div class="footer__list">
+          <div>Телефон: <b>+998 (__) ___-__-__</b></div>
+          <div>Почта: <b>you@example.com</b></div>
+          <div>Telegram: <b>@your_handle</b></div>
+          <div>Город: <b>Ташкент</b></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer__title">Документы</div>
+        <div class="footer__links">
+          <a class="link" href="privacy.html">Политика конфиденциальности</a>
+          <a class="link" href="terms.html">Пользовательское соглашение</a>
+          <a class="link" href="requisites.html">Реквизиты</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer__title">Навигация</div>
+        <div class="footer__links">
+          <a class="link" href="index.html#about">О нас</a>
+          <a class="link" href="index.html#features">Функции</a>
+          <a class="link" href="index.html#pricing">Тарифы</a>
+          <a class="link" href="#" data-open-modal="contacts">Контакты</a>
+          <a class="link" href="#top" data-scroll-top>Наверх ↑</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <div class="muted">© <span id="year"></span> Rivee</div>
+      <div class="muted">Все права защищены</div>
+    </div>
+  </footer>
+
+  <!-- Modals: Auth + Plans -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal__head">
+        <div class="modal__title" id="modalTitle">—</div>
+        <button class="modal__close" aria-label="Закрыть" data-close-modal>✕</button>
+      </div>
+      <div class="modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+  (function(){
+    const DISCOUNT = {1:0, 3:0.05, 6:0.10, 12:0.15};
+
+    function fmt(n){
+      return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+
+    function updateCard(card){
+      const plan = card.getAttribute("data-plan");
+      if(plan === "custom") return;
+
+      const base = Number(card.getAttribute("data-base") || "0");
+      const months = Number(card.getAttribute("data-months") || "1");
+      const disc = DISCOUNT[months] ?? 0;
+
+      let addon = 0;
+      const addonCb = card.querySelector('input[data-addon="drivers"]');
+      if(addonCb && addonCb.checked) addon = 100;
+
+      const monthPrice = base + addon;
+      const raw = monthPrice * months;
+      const total = raw * (1 - disc);
+      const save = raw - total;
+
+      const priceEl = card.querySelector("[data-price]");
+      const subEl = card.querySelector("[data-sub]");
+      const saveEl = card.querySelector("[data-save]");
+      const discEl = card.querySelector("[data-discount]");
+
+      if(priceEl) priceEl.textContent = fmt(months === 1 ? monthPrice : total);
+      if(subEl) subEl.textContent = months === 1 ? "/мес" : `/${months} мес`;
+      if(saveEl) saveEl.textContent = fmt(save);
+      if(discEl) discEl.textContent = Math.round(disc * 100);
+    }
+
+    function bindCard(card){
+      card.setAttribute("data-months","1");
+      updateCard(card);
+
+      const btns = [...card.querySelectorAll(".card-duration .segbtn[data-m]")];
+      btns.forEach(b=>{
+        b.addEventListener("click", ()=>{
+          const m = Number(b.getAttribute("data-m") || "1");
+          card.setAttribute("data-months", String(m));
+          btns.forEach(x=>x.classList.toggle("is-active", x === b));
+          updateCard(card);
+        });
+      });
+
+      const addonCb = card.querySelector('input[data-addon="drivers"]');
+      if(addonCb){
+        addonCb.addEventListener("change", ()=> updateCard(card));
+      }
+    }
+
+    document.querySelectorAll(".pricecard[data-plan]").forEach(bindCard);
+
+    // Custom modal
+    const btn = document.getElementById("customConfigure");
+    if(btn){
+      btn.addEventListener("click", ()=>{
+        const html = `
+          <div class="muted">Настройте подписку по своему желанию</div>
+
+          <div class="custom-modal-grid">
+            <div class="custom-modal-field">
+              <label for="cSeats">количество мест:</label>
+              <div class="number-input compact">
+                <button class="num-btn" type="button" data-step="-1" aria-label="Уменьшить значение">&lt;</button>
+                <input type="text" id="cSeats" value="1" inputmode="numeric" pattern="[0-9]*" aria-label="Количество мест" />
+                <button class="num-btn" type="button" data-step="1" aria-label="Увеличить значение">&gt;</button>
+              </div>
+            </div>
+
+            <div class="custom-modal-field">
+              <label for="cMonths">длительность:</label>
+              <div class="number-input compact">
+                <button class="num-btn" type="button" data-step="-1" aria-label="Уменьшить значение">&lt;</button>
+                <input type="text" id="cMonths" value="1" inputmode="numeric" pattern="[0-9]*" aria-label="Длительность в месяцах" />
+                <button class="num-btn" type="button" data-step="1" aria-label="Увеличить значение">&gt;</button>
+              </div>
+            </div>
+          </div>
+
+          <label class="muted small" style="display:flex;align-items:center;gap:10px;margin-top:10px;">
+            <input id="cRealtime" type="checkbox" />
+            <span>real-time статистика:</span>
+          </label>
+
+          <label class="muted small" style="display:flex;align-items:center;gap:10px;margin-top:8px;">
+            <input id="cAI" type="checkbox" />
+            <span>автоматические ответы ИИ:</span>
+          </label>
+
+          <label class="muted small" style="display:flex;align-items:center;gap:10px;margin-top:8px;">
+            <input id="cDrivers" type="checkbox" />
+            <span>доступ к базе водителей:</span>
+          </label>
+
+          <div class="modal__actions" style="margin-top:14px;">
+            <button class="btn btn--ghost" type="button" data-close-modal>Отмена</button>
+            <button class="btn btn--primary" type="button" id="customSubmit">Отправить</button>
+          </div>
+
+          <div class="muted" style="margin-top:10px;font-size:12px;">Мы свяжемся с вами в рабочее время</div>
+        `;
+
+        const om = (typeof openModal === "function") ? openModal : (typeof window.openModal === "function" ? window.openModal : null);
+        if(om){ om("Custom — настройка", html); }
+      });
+    }
+
+    document.addEventListener("click", (e)=>{
+      const t = e.target;
+      if(!(t instanceof HTMLElement)) return;
+
+      // Stepper (< and >) for "количество мест" inside Custom modal
+      const stepBtn = t.closest(".num-btn[data-step]");
+      if(stepBtn){
+        e.preventDefault();
+        e.stopPropagation();
+        const wrap = stepBtn.closest(".number-input");
+        const input = wrap ? wrap.querySelector("input") : null;
+        if(input){
+          const step = Number(stepBtn.getAttribute("data-step") || "0");
+          const cur = Math.max(1, parseInt(String(input.value || "1"), 10) || 1);
+          input.value = String(Math.max(1, cur + step));
+        }
+        return;
+      }
+
+      if(t instanceof HTMLInputElement && (t.id === "cSeats" || t.id === "cMonths")){
+        t.value = t.value.replace(/[^\d]/g, "");
+        if(t.value === "" || Number(t.value) < 1) t.value = "1";
+      }
+
+      if(t.id === "customSubmit"){
+        const ts = (typeof toast === "function") ? toast : (typeof window.toast === "function" ? window.toast : null);
+        const cm = (typeof closeModal === "function") ? closeModal : (typeof window.closeModal === "function" ? window.closeModal : null);
+
+        const seats = Math.max(1, Number((document.getElementById("cSeats")||{}).value || 1));
+        const months = Math.max(1, Number((document.getElementById("cMonths")||{}).value || 1));
+        const realtime = !!(document.getElementById("cRealtime") && document.getElementById("cRealtime").checked);
+        const ai = !!(document.getElementById("cAI") && document.getElementById("cAI").checked);
+        const drivers = !!(document.getElementById("cDrivers") && document.getElementById("cDrivers").checked);
+
+        const parts = [
+          `мест: ${seats}`,
+          `мес: ${months}`,
+          realtime ? "real-time: да" : "real-time: нет",
+          ai ? "ИИ: да" : "ИИ: нет",
+          drivers ? "база водителей: да" : "база водителей: нет"
+        ];
+
+        if(ts) ts("Запрос Custom отправлен — " + parts.join(", "));
+        if(cm) cm();
+      }
+    });
+  })();
+  </script>
+
+
+<!-- Lead Modal -->
+<div class="lead-modal" id="leadModal">
+  <div class="lead-modal__backdrop" data-lead-close></div>
+  <div class="lead-modal__panel">
+    <div class="lead-modal__head">
+      <div>
+        <div class="lead-modal__title">Оставить заявку</div>
+        <div class="lead-modal__sub">Оставьте контакты — мы свяжемся с вами и уточним детали</div>
+      </div>
+      <button class="lead-modal__x" data-lead-close>✕</button>
+    </div>
+    <form class="lead-form" id="leadForm">
+      <label class="lead-field">
+        <span>Компания / юр. лицо</span>
+        <input type="text" name="company" required>
+      </label>
+      <div class="lead-row">
+        <label class="lead-field">
+          <span>Email</span>
+          <input type="email" name="email" required>
+        </label>
+        <label class="lead-field">
+          <span>Телефон</span>
+          <input type="tel" name="phone" required>
+        </label>
+      </div>
+      <label class="lead-field">
+        <span>Имя для обращения</span>
+        <input type="text" name="name" required>
+      </label>
+      <div class="lead-actions">
+        <button class="btn btn--primary">Отправить</button>
+        <button type="button" class="btn btn--ghost" data-lead-close>Отмена</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

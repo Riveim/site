@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Rivee</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="icon.ico" type="image/x-icon">
+</head>
+
+<body class="fade-in">
+
+<header class="navbar">
+
+<div class="nav-left">
+
+<a href="#" class="logo-text" onclick="goStart()">Rivee</a>
+
+</div>
+
+  <div class="nav-center">
+    <a href="#">О нас</a>
+    <a href="#" onclick="goTariffs()">Тарифы</a>
+    <a href="#" data-open="contactsModal">Контакты</a>
+  </div>
+
+  <div class="nav-right">
+<!--    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Сменить тему" aria-pressed="false"></button>-->
+    <button class="nav-btn login" data-open="loginModal">Вход</button>
+    <button class="nav-btn register" data-open="registerModal">Регистрация</button>
+  </div>
+
+</header>
+
+<div class="home-page">
+
+<h1>Главная страница</h1>
+<p>Добро пожаловать в систему Rivee</p>
+
+</div>
+
+<div class="modal" id="loginModal" aria-hidden="true">
+  <div class="modal__overlay" data-close></div>
+
+  <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+    <button class="modal__close" data-close aria-label="Закрыть">✕</button>
+
+    <h2 class="modal__title" id="loginTitle">Вход</h2>
+
+    <form class="modal__form" onsubmit="event.preventDefault(); alert('Пока без сервера 🙂');">
+      <label class="field">
+        <span>Email</span>
+        <input type="email" placeholder="name.com" required>
+      </label>
+
+      <label class="field">
+        <span>Пароль</span>
+        <input type="password" placeholder="••••••••" required>
+      </label>
+
+      <button class="modal__primary" type="submit">Войти</button>
+
+      <p class="modal__hint">
+        Нет аккаунта?
+        <a href="#" data-switch="registerModal">Зарегистрироваться</a>
+      </p>
+    </form>
+  </div>
+</div>
+
+<!-- ===== MODAL: REGISTER ===== -->
+<div class="modal" id="registerModal" aria-hidden="true">
+  <div class="modal__overlay" data-close></div>
+
+  <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
+    <button class="modal__close" data-close aria-label="Закрыть">✕</button>
+
+    <h2 class="modal__title" id="registerTitle">Регистрация</h2>
+
+    <form class="modal__form" onsubmit="event.preventDefault(); alert('Пока без сервера 🙂');">
+      <label class="field">
+        <span>Имя</span>
+        <input type="text" placeholder="Riveim" required>
+      </label>
+
+      <label class="field">
+        <span>Email</span>
+        <input type="email" placeholder="name.com" required>
+      </label>
+
+      <label class="field">
+        <span>Пароль</span>
+        <input type="password" placeholder="Минимум 8 символов" minlength="8" required>
+      </label>
+
+      <button class="modal__primary" type="submit">Создать аккаунт</button>
+
+      <p class="modal__hint">
+        Уже есть аккаунт?
+        <a href="#" data-switch="loginModal">Войти</a>
+      </p>
+    </form>
+  </div>
+</div>
+
+<div id="tariffModal" class="tariff-modal">
+  <div class="tariff-modal-content">
+    <span class="tariff-close" id="tariffClose">&times;</span>
+    <h2 id="tariffTitle"></h2>
+    <ul id="tariffList"></ul>
+  </div>
+</div>
+
+<!-- ===== CONTACTS MODAL ===== -->
+<div class="modal" id="contactsModal" aria-hidden="true">
+  <div class="modal__overlay" data-close></div>
+  <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="contactsTitle">
+    <button class="modal__close" type="button" data-close aria-label="Закрыть">✕</button>
+    <div class="modal__title" id="contactsTitle">Контакты</div>
+
+    <div class="contacts-grid">
+      <div class="contact-item">
+        <strong>Instagram</strong>
+        <a href="https://instagram.com/your_profile" target="_blank" rel="noopener">@your_profile</a>
+      </div>
+
+      <div class="contact-item">
+        <strong>Telegram</strong>
+        <a href="https://t.me/your_username" target="_blank" rel="noopener">@your_username</a>
+      </div>
+
+      <div class="contact-item">
+        <strong>YouTube</strong>
+        <a href="https://youtube.com/@your_channel" target="_blank" rel="noopener">@your_channel</a>
+      </div>
+
+      <div class="contact-item">
+        <strong>TikTok</strong>
+        <a href="https://tiktok.com/@your_tiktok" target="_blank" rel="noopener">@your_tiktok</a>
+      </div>
+
+      <div class="contact-item">
+        <strong>Телефон</strong>
+        <a href="tel:+998900000000">+998 (90) 000-00-00</a>
+      </div>
+
+      <div class="contact-item">
+        <strong>Почта</strong>
+        <a href="mailto:hello@rivee.uz">hello@rivee.uz</a>
+      </div>
+    </div>
+
+    <div class="contacts-note">
+      Замените ссылки и контакты на свои реальные данные (Instagram/Telegram/YouTube/TikTok, телефон и e‑mail).
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__grid">
+
+      <div class="footer__col">
+        <a href="index.html" class="footer__brand-row">
+          <img src="icon.ico" class="footer__logo" alt="Rivee">
+          <div class="footer__brand">Rivee</div>
+        </a>
+        <div class="footer__desc">
+          Платформа для заявок и откликов в грузоперевозках. Фильтрация, приоритет, статистика.
+        </div>
+
+        <div class="footer__social">
+          <a href="https://t.me/your_username" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://instagram.com/your_profile" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://youtube.com/@your_channel" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://tiktok.com/@your_tiktok" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__title">Контакты</div>
+        <div class="footer__list">
+          <div><span>Телефон:</span> <a href="tel:+998900000000">+998 (90) 000-00-00</a></div>
+          <div><span>Почта:</span> <a href="mailto:hello@rivee.uz">hello@rivee.uz</a></div>
+          <div><span>Адрес:</span> Ташкент, Узбекистан</div>
+          <div><span>Время:</span> Пн–Сб 09:00–19:00</div>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__title">Юридическая информация</div>
+        <div class="footer__list">
+          <div><span>ИП:</span> (после регистрации укажешь ФИО ИП)</div>
+          <div><span>ИНН:</span> (будет после регистрации)</div>
+          <div><span>ОГРН/рег.№:</span> (по документам)</div>
+          <div><span>Банк:</span> (название банка)</div>
+        </div>
+
+        <div class="footer__links">
+          <a href="#" class="footer__link">Публичная оферта</a>
+          <a href="#" class="footer__link">Политика конфиденциальности</a>
+          <a href="#" class="footer__link">Условия использования</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div>© <span id="year"></span> Rivee. Все права защищены.</div>
+      <div class="footer__note">Информация на сайте не является публичной офертой до публикации условий.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

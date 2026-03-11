@@ -1,0 +1,443 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rivee — заявки и отклики без хаоса</title>
+
+  <link rel="icon" href="icon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top Bar -->
+  <header class="topbar" id="top">
+    <div class="container topbar__inner">
+      <a class="brand" href="#top" aria-label="Rivee">
+        <img class="brand__logo" src="icon.png" alt="Rivee" /><span class="brand__name">Rivee</span></a>
+
+      <nav class="nav" aria-label="Навигация">
+        <a class="nav__link" href="#about">О нас</a>
+        <a class="nav__link" href="#features">Функции</a>
+        <a class="nav__link" href="#pricing">Тарифы</a>
+        <a class="nav__link" href="#" data-open-modal="contacts">Контакты</a>
+      </nav>
+
+      <div class="topbar__actions">
+<!--        <button class="iconbtn" id="themeToggle" aria-label="Переключить тему" title="Тема"> -->
+          <span class="iconbtn__icon" aria-hidden="true"></span>
+        </button>
+        <button class="btn btn--ghost" data-open-modal="login">Вход</button>
+        <button class="btn btn--primary" data-open-modal="register">Регистрация</button>
+
+        <button class="burger" id="burger" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile" id="mobileMenu" aria-hidden="true">
+      <a class="mobile__link" href="#about">О нас</a>
+      <a class="mobile__link" href="#features">Функции</a>
+      <a class="mobile__link" href="#pricing">Тарифы</a>
+      <a class="mobile__link" href="#" data-open-modal="contacts">Контакты</a>
+      <div class="mobile__row">
+        <button class="btn btn--ghost w100" data-open-modal="login">Вход</button>
+        <button class="btn btn--primary w100" data-open-modal="register">Регистрация</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Background FX -->
+  <div class="bgfx" aria-hidden="true">
+    <div class="bgfx__orb bgfx__orb--a"></div>
+    <div class="bgfx__orb bgfx__orb--b"></div>
+    <div class="bgfx__grid"></div>
+  </div>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__left">
+          <h1 class="h1 reveal">
+            Заявки и отклики по грузоперевозкам — без хаоса в чатах
+          </h1>
+
+          <p class="lead reveal" style="--d: 60ms">
+            Rivee собирает заявки в одном месте, ускоряет поиск перевозчика и помогает менеджерам
+            принимать решения быстрее — с фильтрами, приоритетом и статистикой.
+          </p>
+
+          <div class="hero__cta reveal" style="--d: 120ms">
+            <button class="btn btn--primary" type="button" data-open-modal="download">Скачать</button>
+            <a class="btn btn--ghost" href="#pricing">Тарифы</a>
+          </div>
+
+          <ul class="bullets reveal" style="--d: 180ms">
+            <li>Фильтры по направлению и параметрам груза</li>
+            <li>Приоритет откликов и авто-ответы <b>(Full)</b></li>
+            <li>Статистика в реальном времени <span class="pill">доп. модуль</span></li>
+          </ul>
+
+          <div class="proof reveal" style="--d: 240ms">
+            <div class="proof__item">
+              <div class="proof__num" data-count="605">0</div>
+              <div class="proof__label">водителей в базе</div>
+            </div>
+            <div class="proof__sep"></div>
+            <div class="proof__item">
+              <div class="proof__num" data-count="5">0</div>
+              <div class="proof__label">секунд до заявки</div>
+            </div>
+            <div class="proof__sep"></div>
+            <div class="proof__item">
+              <div class="proof__num" data-count="3">0</div>
+              <div class="proof__label">ключевых модуля</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fake product demo card -->
+        <div class="hero__right reveal" style="--d: 120ms">
+          <div class="mock">
+            <div class="mock__top">
+              <div class="dots"><span></span><span></span><span></span></div>
+              <div class="mock__title">Rivee · Лента заявок</div>
+              <div class="mock__chip">Live</div>
+            </div>
+
+            <div class="mock__body">
+              <div class="mock__filters">
+                <button class="chip chip--active" data-filter="all">Все</button>
+                <button class="chip" data-filter="uz">Узбекистан</button>
+                <button class="chip" data-filter="kz">Казахстан</button>
+                <button class="chip" data-filter="ru">Россия</button>
+              </div>
+
+              <div class="feed" id="feed" aria-live="polite">
+                <!-- JS renders cards -->
+              </div>
+
+              <div class="mock__hint">
+                Похоже на реальную систему: фильтры, приоритет, быстрый отклик.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About / Steps -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2 reveal">Как это работает</h2>
+          <p class="muted reveal" style="--d:60ms">
+            Ты не “ищешь заявки” — ты управляешь потоком: фильтруешь, сравниваешь, выбираешь.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step__num">1</div>
+            <div class="step__body">
+              <div class="step__title">Сбор заявок</div>
+              <div class="step__text">Система собирает заявки и приводит их к одному формату.</div>
+            </div>
+          </div>
+
+          <div class="step reveal" style="--d:80ms">
+            <div class="step__num">2</div>
+            <div class="step__body">
+              <div class="step__title">Фильтрация и поиск</div>
+              <div class="step__text">Направление, тоннаж, тип транспорта — находишь нужное быстро.</div>
+            </div>
+          </div>
+
+          <div class="step reveal" style="--d:160ms">
+            <div class="step__num">3</div>
+            <div class="step__body">
+              <div class="step__title">Отклики и приоритет</div>
+              <div class="step__text">Full даёт приоритет + авто-ответы, чтобы “забрать” заявку раньше.</div>
+            </div>
+          </div>
+
+          <div class="step reveal" style="--d:240ms">
+            <div class="step__num">4</div>
+            <div class="step__body">
+              <div class="step__title">Статистика</div>
+              <div class="step__text">Понимаешь рынок: цены, направления, активность — в реальном времени.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2 reveal">Ключевые преимущества</h2>
+          <p class="muted reveal" style="--d:60ms">Микро-интеракции и понятная структура = доверие.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <h3 class="h3">Умная лента</h3>
+            <p class="muted">Новые заявки “подсвечиваются”, приоритетные — выше.</p>
+            <div class="tagrow">
+              <span class="tag">Live</span><span class="tag">Priority</span><span class="tag">Search</span>
+            </div>
+          </article>
+
+          <article class="card reveal" style="--d:80ms">
+            <h3 class="h3">Фильтры</h3>
+            <p class="muted">Быстро отсекаешь шум. Меньше кликов — больше решений.</p>
+            <div class="tagrow">
+              <span class="tag">Route</span><span class="tag">Tonnage</span><span class="tag">Truck</span>
+            </div>
+          </article>
+
+          <article class="card reveal" style="--d:160ms">
+            <h3 class="h3">Авто-ответы</h3>
+            <p class="muted">Шаблоны откликов и автоматизация для Full-клиентов.</p>
+            <div class="tagrow">
+              <span class="tag">Full</span><span class="tag">Templates</span><span class="tag">Speed</span>
+            </div>
+          </article>
+
+          <article class="card reveal" style="--d:240ms">
+            <h3 class="h3">Статистика</h3>
+            <p class="muted">Куда движется спрос, где выше цена, кто активнее.</p>
+            <div class="tagrow">
+              <span class="tag">Realtime</span><span class="tag">Insights</span><span class="tag">Module</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+        <div class="demo__right reveal" style="--d:100ms">
+          <div class="system-wrap">
+            <div class="panel">
+            <div class="panel__head">
+              <div class="panel__title">Состояние системы</div>
+              <div class="panel__badge" id="statusBadge">Online</div>
+            </div>
+            <div class="panel__rows">
+              <div class="row"><span>Заявок за сегодня</span><b id="rpm">—</b></div>
+              <div class="row"><span>Среднее время ответа</span><b id="rt">—</b></div>
+              <div class="row"><span>Активных компаний</span><b id="ac">—</b></div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing teaser -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2 reveal">Тарифы</h2>
+          <p class="muted reveal" style="--d:60ms">Просто и прозрачно: Basic, Full, Custom.</p>
+        </div>
+
+        <div class="pricing">
+          <div class="pricecard reveal">
+            <div class="pricecard__top">
+              <h3 class="h3">Basic</h3>
+              <div class="price"><span>$</span>200<span class="price__sub">/мес</span></div>
+            </div>
+            <ul class="list">
+              <li>Заявки + отклики</li>
+              <li>Фильтры</li>
+              <li>1 место</li>
+            </ul>
+            <a class="btn btn--ghost w100" href="tariffs.html#basic">Подробнее</a>
+          </div>
+
+          <div class="pricecard pricecard--hot reveal" style="--d:90ms">
+            <div class="pricecard__hot">Рекомендуем</div>
+            <div class="pricecard__top">
+              <h3 class="h3">Full</h3>
+              <div class="price"><span>$</span>500<span class="price__sub">/мес</span></div>
+            </div>
+            <ul class="list">
+              <li>Basic + 3 места</li>
+              <li>Приоритет откликов</li>
+              <li>Авто-ответы</li>
+            </ul>
+            <a class="btn btn--ghost w100" href="tariffs.html#full">Подробнее</a>
+          </div>
+
+          <div class="pricecard reveal" style="--d:180ms">
+            <div class="pricecard__top">
+              <h3 class="h3">Custom</h3>
+              <div class="price"><span>Инд.</span><span class="price__sub">условия</span></div>
+            </div>
+            <ul class="list">
+              <li>Интеграции</li>
+              <li>Особые правила</li>
+              <li>SLA / поддержка</li>
+            </ul>
+            <a class="btn btn--ghost w100" href="tariffs.html#custom">Подробнее</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2 reveal">FAQ</h2>
+          <p class="muted reveal" style="--d:60ms">Коротко отвечаем на неудобные вопросы.</p>
+        </div>
+
+        <div class="faq">
+          <button class="faq__q reveal">
+            Чем вы лучше телеграм-чатов?
+            <span class="faq__icon"></span>
+          </button>
+          <div class="faq__a">
+            В чатах — шум и потеря времени. В Rivee — единый формат заявок, фильтры, приоритет и скорость принятия решения.
+          </div>
+
+          <button class="faq__q reveal" style="--d:100ms">
+              Сколько времени занимает подключение?
+              <span class="faq__icon"></span>
+            </button>
+            <div class="faq__a">
+              Подключение занимает несколько минут. После получения доступа вы сразу
+              можете начать принимать заявки и отправлять отклики.
+            </div>
+
+            <button class="faq__q reveal" style="--d:120ms">
+              Откуда берутся заявки?
+              <span class="faq__icon"></span>
+            </button>
+            <div class="faq__a">
+              Заявки поступают из сети подключённых логистических компаний и базы водителей.
+              Система собирает их в единой ленте, чтобы вы могли быстрее находить подходящие грузы.
+            </div>
+
+            <button class="faq__q reveal" style="--d:140ms">
+              Для каких компаний подходит система?
+              <span class="faq__icon"></span>
+            </button>
+            <div class="faq__a">
+              Rivee подходит для транспортных компаний, диспетчеров и логистических операторов,
+              которые регулярно ищут грузы или водителей и хотят ускорить этот процесс.
+            </div>
+
+            <button class="faq__q reveal" style="--d:160ms">
+              Можно ли добавить сотрудников в систему?
+              <span class="faq__icon"></span>
+            </button>
+            <div class="faq__a">
+              Да. Вы можете добавить дополнительные места для сотрудников вашей компании
+              или выбрать индивидуальный тариф с нужным количеством пользователей.
+            </div>
+
+            <button class="faq__q reveal" style="--d:180ms">
+              Есть ли поддержка?
+              <span class="faq__icon"></span>
+            </button>
+            <div class="faq__a">
+              Да. Мы помогаем с подключением, настройкой и отвечаем на вопросы
+              по работе системы.
+            </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+    
+        <div style="text-align:center;">
+      
+          <h2 class="h2" style="margin-bottom:12px">
+            Попробуйте Rivee в работе
+          </h2>
+
+          <p class="muted" style="max-width:600px; margin:0 auto 26px">
+            Подключитесь к системе и начните получать заявки быстрее.
+            Настройте тариф под свою компанию и начните работу уже сегодня.
+          </p>
+
+          <a href="tariffs.html" class="btn btn--primary">
+            Посмотреть тарифы
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">Rivee</div>
+        <div class="muted">Официальный сайт сервиса заявок и откликов по грузоперевозкам.</div>
+        <div class="footer__social">
+          <a class="footer__chip" href="#" aria-label="Telegram">Telegram</a>
+          <a class="footer__chip" href="#" aria-label="Instagram">Instagram</a>
+          <a class="footer__chip" href="#" aria-label="Email">Email</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer__title">Контакты</div>
+        <div class="footer__list">
+          <div>Телефон: <b>+998 (90) 068-22-30</b></div>
+          <div>Почта: <b>rivee.logistic@gmail.com</b></div>
+          <div>Telegram: <b>@Rivee</b></div>
+          <div>Город: <b>Ташкент</b></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer__title">Документы</div>
+        <div class="footer__links">
+          <a class="link" href="privacy.html">Политика конфиденциальности</a>
+          <a class="link" href="terms.html">Пользовательское соглашение</a>
+          <a class="link" href="requisites.html">Реквизиты</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer__title">Навигация</div>
+        <div class="footer__links">
+          <a class="link" href="#about">О нас</a>
+          <a class="link" href="#features">Функции</a>
+          <a class="link" href="#pricing">Тарифы</a>
+          <a class="link" href="#" data-open-modal="contacts">Контакты</a>
+          <a class="link" href="#top" data-scroll-top>Наверх ↑</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <div class="muted">© <span id="year"></span> Rivee</div>
+      <div class="muted">Все права защищены</div>
+    </div>
+  </footer>
+
+  <!-- Modals: Auth + Plans -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal__head">
+        <div class="modal__title" id="modalTitle">—</div>
+        <button class="modal__close" aria-label="Закрыть" data-close-modal>✕</button>
+      </div>
+      <div class="modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

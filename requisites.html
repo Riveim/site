@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rivee — Реквизиты</title>
+  <link rel="icon" href="icon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar" id="top">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html" aria-label="Rivee">
+        <img class="brand__logo" src="icon.png" alt="Rivee" /><span class="brand__name">Rivee</span>
+      </a>
+
+      <div class="topbar__actions">
+        <button class="iconbtn" id="themeToggle" aria-label="Переключить тему" title="Тема">
+          <span class="iconbtn__icon" aria-hidden="true"></span>
+        </button>
+        <a class="btn btn--ghost" href="index.html#contacts">Контакты</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section__head">
+        <h1 class="h2 reveal">Реквизиты</h1>
+        <p class="muted reveal" style="--d:60ms">Заполни после регистрации ИП/ООО. Пока — шаблон.</p>
+      </div>
+
+      <div class="card reveal">
+        <h3 class="h3">Оператор сервиса</h3>
+        <p class="muted">ИП / ООО «__________»</p>
+
+        <div class="tagrow" style="margin-top:10px;">
+          <span class="tag">ИНН: ________</span>
+          <span class="tag">ОГРН/рег.№: ________</span>
+          <span class="tag">Адрес: ________</span>
+        </div>
+
+        <h3 class="h3" style="margin-top:14px;">Банк</h3>
+        <p class="muted">Р/с: ________ · Банк: ________ · МФО: ________</p>
+
+        <h3 class="h3" style="margin-top:14px;">Контакты</h3>
+        <p class="muted">Телефон: +998 (__) ___-__-__ · Email: you@example.com</p>
+      </div>
+
+      <div style="height:14px"></div>
+      <a class="muted link reveal" href="index.html">← На главную</a>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">Rivee</div>
+        <div class="muted">Официальный сайт сервиса заявок и откликов по грузоперевозкам.</div>
+      </div>
+      <div>
+        <div class="footer__title">Документы</div>
+        <div class="footer__links">
+          <a class="link" href="privacy.html">Политика конфиденциальности</a>
+          <a class="link" href="terms.html">Пользовательское соглашение</a>
+          <a class="link" href="requisites.html">Реквизиты</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__title">Навигация</div>
+        <div class="footer__links">
+          <a class="link" href="index.html#top">На главную</a>
+          <a class="link" href="#top" data-scroll-top>Наверх ↑</a>
+        </div>
+      </div>
+      <div></div>
+    </div>
+    <div class="container footer__bottom">
+      <div class="muted">© <span id="year"></span> Rivee</div>
+      <div class="muted">Все права защищены</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rivee — Пользовательское соглашение</title>
+  <link rel="icon" href="icon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar" id="top">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html" aria-label="Rivee">
+        <img class="brand__logo" src="icon.png" alt="Rivee" /><span class="brand__name">Rivee</span>
+      </a>
+
+      <div class="topbar__actions">
+        <button class="iconbtn" id="themeToggle" aria-label="Переключить тему" title="Тема">
+          <span class="iconbtn__icon" aria-hidden="true"></span>
+        </button>
+        <a class="btn btn--ghost" href="index.html#contacts">Контакты</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section__head">
+        <h1 class="h2 reveal">Пользовательское соглашение</h1>
+        <p class="muted reveal" style="--d:60ms">Шаблон. Нужен юр.текст под ИП/ООО и модель сервиса.</p>
+      </div>
+
+      <div class="card reveal">
+        <h3 class="h3">1. Термины</h3>
+        <p class="muted">«Сервис», «Пользователь», «Компания», «Тариф» — определяются в финальной версии документа.</p>
+
+        <h3 class="h3" style="margin-top:14px;">2. Предмет</h3>
+        <p class="muted">Предоставление доступа к функционалу по обработке заявок/откликов и аналитике.</p>
+
+        <h3 class="h3" style="margin-top:14px;">3. Оплата</h3>
+        <p class="muted">Условия тарифов, сроки, скидки и возвраты — фиксируются в счёте/оферте.</p>
+
+        <h3 class="h3" style="margin-top:14px;">4. Ответственность</h3>
+        <p class="muted">Ограничения ответственности и SLA — по договору/оферте.</p>
+      </div>
+
+      <div style="height:14px"></div>
+      <a class="muted link reveal" href="index.html">← На главную</a>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">Rivee</div>
+        <div class="muted">Официальный сайт сервиса заявок и откликов по грузоперевозкам.</div>
+      </div>
+      <div>
+        <div class="footer__title">Документы</div>
+        <div class="footer__links">
+          <a class="link" href="privacy.html">Политика конфиденциальности</a>
+          <a class="link" href="terms.html">Пользовательское соглашение</a>
+          <a class="link" href="requisites.html">Реквизиты</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__title">Навигация</div>
+        <div class="footer__links">
+          <a class="link" href="index.html#top">На главную</a>
+          <a class="link" href="#top" data-scroll-top>Наверх ↑</a>
+        </div>
+      </div>
+      <div></div>
+    </div>
+    <div class="container footer__bottom">
+      <div class="muted">© <span id="year"></span> Rivee</div>
+      <div class="muted">Все права защищены</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
